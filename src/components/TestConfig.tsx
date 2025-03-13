@@ -31,8 +31,9 @@ export function TestConfigModal() {
   const updateConfig = (key: keyof TestConfig, value: any) => {
     if (selectedTest) {
       const updatedConfig = { ...selectedTest.config, [key]: value };
-      useTestStore.setState({
-        selectedTest: { ...selectedTest, config: updatedConfig }
+      useTestStore.getState().setSelectedTest({
+        ...selectedTest,
+        config: updatedConfig
       });
     }
   };
@@ -40,10 +41,9 @@ export function TestConfigModal() {
   // Reset when dialog closes
   useEffect(() => {
     if (!isOpen) {
-      useTestStore.setState({ 
-        selectedTest: null,
-        selectedTestType: null 
-      });
+      // Only reset state when dialog actually closes
+      useTestStore.getState().setSelectedTest(null);
+      useTestStore.getState().setSelectedTestType(null);
     }
   }, [isOpen]);
   
@@ -51,7 +51,7 @@ export function TestConfigModal() {
   
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[520px]">
+      <DialogContent className="sm:max-w-[520px] bg-background">
         <DialogHeader>
           <DialogTitle className="text-xl">Configure Test</DialogTitle>
           <DialogDescription>

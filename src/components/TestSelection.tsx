@@ -13,10 +13,8 @@ import { TEST_TYPES, createDefaultTest } from '@/utils/testUtils';
 import { Plus } from 'lucide-react';
 
 export function TestSelection() {
-  const [selectedType, setSelectedType] = useTestStore(state => [
-    state.selectedTestType,
-    state.setSelectedTestType
-  ]);
+  const selectedType = useTestStore(state => state.selectedTestType);
+  const setSelectedTestType = useTestStore(state => state.setSelectedTestType);
   const addTest = useTestStore((state) => state.addTest);
   const isRunning = useTestStore((state) => state.isRunning);
   const setIsConfigModalOpen = useTestStore((state) => state.setIsConfigModalOpen);
@@ -51,7 +49,7 @@ export function TestSelection() {
       <div className="flex gap-3 items-center">
         <Select 
           value={selectedType || ""}
-          onValueChange={setSelectedType}
+          onValueChange={setSelectedTestType}
           disabled={isRunning}
         >
           <SelectTrigger className="w-[220px] bg-white shadow-sm">
