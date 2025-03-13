@@ -1,4 +1,3 @@
-
 import { create } from 'zustand';
 
 export type TestStatus = 'pending' | 'running' | 'completed' | 'failed';
@@ -12,6 +11,7 @@ export interface TestConfig {
   voltage?: number;
   current?: number;
   frequency?: number;
+  notes?: string;
 }
 
 export interface Test {
