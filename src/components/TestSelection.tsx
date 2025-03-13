@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { 
   Select,
   SelectContent,
@@ -13,9 +13,26 @@ import { TEST_TYPES, createDefaultTest } from '@/utils/testUtils';
 import { Plus } from 'lucide-react';
 
 export function TestSelection() {
-  const [selectedType, setSelectedType] = useState<string>(TEST_TYPES[0].id);
+  const [selectedType, setSelectedType] = useTestStore(state => [
+    state.selectedTestType,
+    state.setSelectedTestType
+  ]);
   const addTest = useTestStore((state) => state.addTest);
   const isRunning = useTestStore((state) => state.isRunning);
+  const setIsConfigModalOpen = useTestStore((state) => state.setIsConfigModalOpen);
+  const setSelectedTest = useTestStore((state) => state.setSelectedTest);
+  
+  // Open config modal when a test type is selected
+  useEffect(() => {
+    if (selectedType) {
+      const testType = TEST_TYPES.find(t => t.id === selectedType);
+      if (testType) {
+        const newTest = createDefaultTest(testType.id, testType.name);
+        setSelectedTest(newTest);
+        setIsConfigModalOpen(true);
+      }
+    }
+  }, [selectedType, setSelectedTest, setIsConfigModalOpen]);
   
   const handleAddTest = () => {
     const testType = TEST_TYPES.find(t => t.id === selectedType);
@@ -33,7 +50,7 @@ export function TestSelection() {
       
       <div className="flex gap-3 items-center">
         <Select 
-          value={selectedType}
+          value={selectedType || ""}
           onValueChange={setSelectedType}
           disabled={isRunning}
         >
@@ -55,7 +72,7 @@ export function TestSelection() {
         
         <Button
           onClick={handleAddTest}
-          disabled={isRunning}
+          disabled={isRunning || !selectedType}
           className="transition-all duration-300 hover:bg-primary/90"
         >
           <Plus className="h-4 w-4 mr-2" />

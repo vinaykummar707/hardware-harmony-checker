@@ -34,6 +34,7 @@ export interface TestResults {
 interface TestStore {
   tests: Test[];
   selectedTest: Test | null;
+  selectedTestType: string | null;
   results: TestResults;
   isConfigModalOpen: boolean;
   isRunning: boolean;
@@ -42,6 +43,7 @@ interface TestStore {
   clearTests: () => void;
   updateTest: (id: string, updates: Partial<Test>) => void;
   setSelectedTest: (test: Test | null) => void;
+  setSelectedTestType: (type: string | null) => void;
   setIsConfigModalOpen: (isOpen: boolean) => void;
   setIsRunning: (isRunning: boolean) => void;
 }
@@ -57,6 +59,7 @@ const getInitialResults = (): TestResults => ({
 export const useTestStore = create<TestStore>((set) => ({
   tests: [],
   selectedTest: null,
+  selectedTestType: null,
   results: getInitialResults(),
   isConfigModalOpen: false,
   isRunning: false,
@@ -66,7 +69,10 @@ export const useTestStore = create<TestStore>((set) => ({
     results: {
       ...state.results,
       total: state.results.total + 1
-    }
+    },
+    selectedTestType: null,
+    isConfigModalOpen: false,
+    selectedTest: null
   })),
   
   removeTest: (id) => set((state) => {
@@ -136,6 +142,11 @@ export const useTestStore = create<TestStore>((set) => ({
   }),
   
   setSelectedTest: (test) => set({ selectedTest: test }),
-  setIsConfigModalOpen: (isOpen) => set({ isConfigModalOpen: isOpen }),
+  setSelectedTestType: (type) => set({ selectedTestType: type }),
+  setIsConfigModalOpen: (isOpen) => set(state => ({ 
+    isConfigModalOpen: isOpen,
+    // Clear selected test type when closing modal without adding
+    selectedTestType: isOpen ? state.selectedTestType : null
+  })),
   setIsRunning: (isRunning) => set({ isRunning })
 }));

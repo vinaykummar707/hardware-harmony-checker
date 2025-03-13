@@ -15,18 +15,21 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Slider } from '@/components/ui/slider';
 import { Label } from '@/components/ui/label';
+import { toast } from 'sonner';
 
 export function TestConfigModal() {
   const selectedTest = useTestStore((state) => state.selectedTest);
   const isOpen = useTestStore((state) => state.isConfigModalOpen);
   const setIsOpen = useTestStore((state) => state.setIsConfigModalOpen);
   const updateTest = useTestStore((state) => state.updateTest);
+  const addTest = useTestStore((state) => state.addTest);
   
   // Handle form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (selectedTest) {
-      updateTest(selectedTest.id, { config: selectedTest.config });
+      addTest(selectedTest);
+      toast.success(`Added ${selectedTest.name} test`);
       setIsOpen(false);
     }
   };
@@ -44,7 +47,10 @@ export function TestConfigModal() {
   // Reset when dialog closes
   useEffect(() => {
     if (!isOpen) {
-      useTestStore.setState({ selectedTest: null });
+      useTestStore.setState({ 
+        selectedTest: null,
+        selectedTestType: null 
+      });
     }
   }, [isOpen]);
   
@@ -208,7 +214,7 @@ export function TestConfigModal() {
               Cancel
             </Button>
             <Button type="submit">
-              Save Configuration
+              Add Test
             </Button>
           </DialogFooter>
         </form>
