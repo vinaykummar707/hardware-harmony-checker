@@ -3,17 +3,24 @@ import { useState } from 'react';
 import { Test } from '@/store/testStore';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { CheckCircle, Settings, Trash, XCircle } from 'lucide-react';
+import { CheckCircle, Settings, Trash, XCircle, Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface TestItemProps {
   test: Test;
   onConfigure: (test: Test) => void;
   onRemove: (id: string) => void;
+  onRun?: (test: Test) => void;
   disabled?: boolean;
 }
 
-export function TestItem({ test, onConfigure, onRemove, disabled = false }: TestItemProps) {
+export function TestItem({ 
+  test, 
+  onConfigure, 
+  onRemove, 
+  onRun,
+  disabled = false 
+}: TestItemProps) {
   const [isHovering, setIsHovering] = useState(false);
   
   const getStatusIcon = () => {
@@ -73,6 +80,18 @@ export function TestItem({ test, onConfigure, onRemove, disabled = false }: Test
         <div className={`mt-3 flex items-center space-x-2 transition-opacity duration-200 ${
           isHovering ? 'opacity-100' : 'opacity-0'
         }`}>
+          {test.status === 'pending' && onRun && (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => onRun(test)}
+              disabled={disabled || test.status === 'running'}
+              className="h-8 text-xs"
+            >
+              <Play className="h-3.5 w-3.5 mr-1" />
+              Run Test
+            </Button>
+          )}
           <Button
             variant="outline"
             size="sm"

@@ -160,6 +160,7 @@ export function TestExecution() {
                 test={test}
                 onConfigure={handleConfigureTest}
                 onRemove={handleRemoveTest}
+                onRun={(test) => runSingleTest.mutate(test)}
                 disabled={isRunning}
               />
             ))}
