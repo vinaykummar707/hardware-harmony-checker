@@ -41,11 +41,11 @@ const Index = () => {
       <main className="container w-full py-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
           <div className="col-span-12 space-y-4">
-            <TestSelection />
-            <Separator />
+          
             <TestStats />
             <Separator />
-
+            <TestSelection />
+            <Separator />
             <TestExecution />
           </div>
           <div>

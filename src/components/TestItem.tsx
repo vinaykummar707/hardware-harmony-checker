@@ -3,8 +3,9 @@ import { useState } from 'react';
 import { Test } from '@/store/testStore';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { Check, CheckCircle, CheckCircle2, CheckIcon, Settings, Trash, XCircle } from 'lucide-react';
+import { Check, CheckCircle, CheckCircle2, CheckIcon, Play, Settings, Trash, XCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/badge';
 
 interface TestItemProps {
   test: Test;
@@ -23,18 +24,35 @@ export function TestItem({
 }: TestItemProps) {
   const [isHovering, setIsHovering] = useState(false);
   
-  const getStatusIcon = () => {
+  const getStatusBadge = () => {
     switch (test.status) {
       case 'completed':
-        return <CheckIcon className="h-5 w-5 text-success" />;
+        return (
+          <Badge variant="outline" className="bg-success/10 text-success border-success/20 flex items-center gap-1">
+            <CheckIcon className="h-3 w-3" />
+            Passed
+          </Badge>
+        );
       case 'failed':
-        return <XCircle className="h-5 w-5 text-destructive" />;
+        return (
+          <Badge variant="outline" className="bg-destructive/10 text-destructive border-destructive/20 flex items-center gap-1">
+            <XCircle className="h-3 w-3" />
+            Failed
+          </Badge>
+        );
       case 'running':
         return (
-          <div className="h-5 w-5 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+          <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 flex items-center gap-1">
+            <div className="h-3 w-3 rounded-full border-[1.5px] border-primary border-t-transparent animate-spin mr-1" />
+            Running
+          </Badge>
         );
       default:
-        return null;
+        return (
+          <Badge variant="outline" className="bg-muted/10 text-muted-foreground border-muted/20">
+            Pending
+          </Badge>
+        );
     }
   };
   
@@ -54,51 +72,63 @@ export function TestItem({
   return (
     <div 
       className={cn(
-        "glass-card p-4  flex justify-between items-center rounded-lg border border-stone-200 w-full  transition-all relative",
+        "glass-card p-3 flex justify-between items-center rounded-lg border border-stone-200 w-full transition-all relative",
         getStatusClass()
       )}
-    
     >
-      <div className="flex w-full items-center justify-between">
+      <div className="flex w-full justify-between items-center gap-2">
         <div>
-          <h3 className="font-semibold text-md text-foreground">{test.name}</h3>
-          <p className="text-sm text-muted-foreground mt-1">
-            {test.result || `Type: ${test.type}`}
-          </p>
+        <div className="flex justify-between items-start mb-1">
+          {getStatusBadge()}
         </div>
-        <div className="flex items-center">
-          {getStatusIcon()}
+        <h3 className="font-semibold text-md text-foreground">{test.name}</h3>
+        <p className="text-sm text-muted-foreground mt-1">
+          {test.result || `Type: ${test.type}`}
+        </p>
         </div>
+     
+
+      <div>
+      {(test.status === 'pending' || test.status === 'completed' || test.status === 'failed') && 
+          <div className="mt-3 flex items-center space-x-2 transition-opacity duration-200">
+            {onRun && (test.status === 'pending' || test.status === 'completed' || test.status === 'failed') && (
+              <Button
+                variant="default"
+                size="sm"
+                onClick={() => onRun(test)}
+                disabled={disabled || test.status === 'running'}
+                className="h-8 text-xs"
+              >
+                <Play className="h-3.5 w-3.5 mr-1" />
+                Run Test
+              </Button>
+            )}
+            <Button
+              variant="default"
+              size="sm"
+              onClick={() => onConfigure(test)}
+              disabled={disabled || test.status === 'running'}
+              className="h-8 text-xs"
+            >
+              <Settings className="h-3.5 w-3.5 mr-1" />
+              Configure
+            </Button>
+            <Button
+              variant="destructive"
+              size="sm"
+              onClick={() => onRemove(test.id)}
+              disabled={disabled || test.status === 'running'}
+              className="h-8 text-xs"
+            >
+              <Trash className="h-3.5 w-3.5 mr-1" />
+              Remove
+            </Button>
+          </div>
+        }
       </div>
       
-      {/* {test.status === 'running' && (
-        <Progress value={test.progress} className="h-1.5 mt-3" />
-      )} */}
-      
-      {test.status === 'pending' && 
-        <div className={`mt-3 flex items-center space-x-2 transition-opacity duration-200`}>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => onConfigure(test)}
-            disabled={disabled || test.status === 'running'}
-            className="h-8 text-xs"
-          >
-            <Settings className="h-3.5 w-3.5 mr-1" />
-            Configure
-          </Button>
-          <Button
-            variant="destructive"
-            size="sm"
-            onClick={() => onRemove(test.id)}
-            disabled={disabled || test.status === 'running'}
-            className="h-8 text-xs "
-          >
-            <Trash className="h-3.5 w-3.5 mr-1" />
-            Remove
-          </Button>
-        </div>
-    }
+       
+      </div>
     </div>
   );
 }

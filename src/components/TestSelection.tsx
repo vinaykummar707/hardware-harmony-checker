@@ -149,14 +149,14 @@ export function TestSelection() {
           </SelectContent>
         </Select>
         
-        <Button
+        {/* <Button
           onClick={handleAddTest}
           disabled={isRunning || !selectedType}
           className="transition-all duration-300 hover:bg-primary/90"
         >
           <Plus className="h-4 w-4 mr-2" />
           Add Test
-        </Button>
+        </Button> */}
       </div>
     </div>
   );
