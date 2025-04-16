@@ -62,7 +62,7 @@ interface StatCardProps {
 
 function StatCard({ title, value, icon, isActive = false }: StatCardProps) {
   return (
-    <Card className={`overflow-hidden shadow-sm border transition-all ${
+    <Card className={`overflow-hidden shadow-none border transition-all ${
       isActive ? 'border-primary/20 bg-primary/5' : ''
     }`}>
       <CardHeader className="p-4 pb-2 flex flex-row items-center justify-between space-y-0">

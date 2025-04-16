@@ -1,71 +1,74 @@
 
-import { useEffect } from 'react';
-import { useTestStore, TestConfig } from '@/store/testStore';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog';
-import { toast } from 'sonner';
-import { TestConfigForm } from './test-config/TestConfigForm';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useTestStore } from "@/store/testStore";
+import { TestConfigForm } from "@/components/test-config/TestConfigForm";
 
 export function TestConfigModal() {
-  const selectedTest = useTestStore((state) => state.selectedTest);
-  const isOpen = useTestStore((state) => state.isConfigModalOpen);
-  const setIsOpen = useTestStore((state) => state.setIsConfigModalOpen);
-  const addTest = useTestStore((state) => state.addTest);
+  const { 
+    isConfigModalOpen, 
+    setIsConfigModalOpen, 
+    selectedTest, 
+    updateTest,
+    addTest,
+    setSelectedTestType,
+    tests
+  } = useTestStore();
   
-  // Handle form submission
+  // Check if we're editing an existing test by seeing if it already exists in the tests array
+  const isEditing = selectedTest ? tests.some(test => test.id === selectedTest.id) : false;
+  
+  const handleClose = () => {
+    setIsConfigModalOpen(false);
+    setSelectedTestType(null);
+  };
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
     if (selectedTest) {
-      addTest(selectedTest);
-      toast.success(`Added ${selectedTest.name} test`);
-      setIsOpen(false);
+      if (isEditing) {
+        // Update existing test
+        updateTest(selectedTest.id, selectedTest);
+      } else {
+        // Add new test
+        addTest(selectedTest);
+      }
+      
+      handleClose();
     }
   };
   
-  // Update configuration values
-  const updateConfig = (key: keyof TestConfig, value: any) => {
+  const handleUpdateConfig = (key: string, value: any) => {
     if (selectedTest) {
-      const updatedConfig = { ...selectedTest.config, [key]: value };
-      useTestStore.getState().setSelectedTest({
+      updateTest(selectedTest.id, { 
         ...selectedTest,
-        config: updatedConfig
+        config: {
+          ...selectedTest.config,
+          [key]: value
+        }
       });
     }
   };
   
-  // Reset when dialog closes
-  useEffect(() => {
-    if (!isOpen) {
-      // Only reset state when dialog actually closes
-      useTestStore.getState().setSelectedTest(null);
-      useTestStore.getState().setSelectedTestType(null);
-    }
-  }, [isOpen]);
-  
-  if (!selectedTest) return null;
-  
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[520px] bg-background">
+    <Dialog open={isConfigModalOpen} onOpenChange={setIsConfigModalOpen}>
+      <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
-          <DialogTitle className="text-xl">Configure Test</DialogTitle>
-          <DialogDescription>
-            Adjust the parameters for the {selectedTest.name} test.
-          </DialogDescription>
+          <DialogTitle>
+            {isEditing ? "Edit Test Configuration" : "Add New Test"}
+          </DialogTitle>
         </DialogHeader>
         
-        <TestConfigForm
-          testType={selectedTest.type}
-          config={selectedTest.config}
-          updateConfig={updateConfig}
-          onSubmit={handleSubmit}
-          onCancel={() => setIsOpen(false)}
-        />
+        {selectedTest && (
+          <TestConfigForm
+            testType={selectedTest.type}
+            config={selectedTest.config}
+            updateConfig={handleUpdateConfig}
+            onSubmit={handleSubmit}
+            onCancel={handleClose}
+            isEditing={isEditing}
+          />
+        )}
       </DialogContent>
     </Dialog>
   );
