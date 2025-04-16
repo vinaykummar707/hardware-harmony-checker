@@ -339,8 +339,7 @@ export const runTest = async (test: Test): Promise<Test> => {
 
     // Send the form values directly without wrapping in config object
     const response = await axios.post(`${API_BASE_URL}${testDef.url}`, {
-      ...test.config,  // Spread the config values directly
-      testId: test.id
+      ...test.config  // Spread the config values directly
     });
 
     return {
