@@ -9,7 +9,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <header className="bg-white/80 backdrop-blur-sm border-b sticky top-0 z-10">
-        <div className="container py-4 flex items-center justify-between">
+        <div className="container py-6 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
               <svg 
@@ -30,11 +30,11 @@ const Index = () => {
                 <path d="M8 16h8" />
               </svg>
             </div>
-            <h1 className="text-xl font-semibold tracking-tight">Hardware Test Suite</h1>
+            <h1 className="text-xl font-semibold tracking-tight">Navitronix Hardware Test Utility</h1>
           </div>
-          <div className="text-sm text-muted-foreground animate-pulse-subtle">
+          {/* <div className="text-sm text-muted-foreground animate-pulse-subtle">
             System ready for testing
-          </div>
+          </div> */}
         </div>
       </header>
       

@@ -258,55 +258,68 @@ import { Test, TestStatus } from '@/store/testStore';
 import axios from 'axios';
 import { TestDefinition } from '@/types/test';
 
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'http://127.0.0.1:5000';
 
 export const testDefinitions: TestDefinition[] = [
   {
-    id: 'led_sequence',
-    name: 'LED Sequence Test',
+    id: 'device_control',
+    name: 'Device Control Test',
     url: '/ledtest',
-    description: 'Tests LED sequences with configurable patterns and speeds',
+    description: 'Tests Device Control',
     parameters: [
+      // {
+      //   key: 'address',
+      //   label: 'Address of the Board',
+      //   type: 'select',
+      //   description: 'The pattern to display on the LEDs',
+      //   defaultValue: 'sequence',
+      //   options: [
+      //     { value: 'sequence', label: 'Sequential' },
+      //     { value: 'alternate', label: 'Alternating' },
+      //     { value: 'random', label: 'Random' },
+      //     { value: 'pulse', label: 'Pulsing' }
+      //   ]
+      // },
       {
-        key: 'pattern',
-        label: 'LED Pattern',
-        type: 'select',
-        description: 'The pattern to display on the LEDs',
-        defaultValue: 'sequence',
-        options: [
-          { value: 'sequence', label: 'Sequential' },
-          { value: 'alternate', label: 'Alternating' },
-          { value: 'random', label: 'Random' },
-          { value: 'pulse', label: 'Pulsing' }
-        ]
+        key: 'address',
+        label: 'Address of the Board',
+        type: 'text',
+        description: '',
+        defaultValue: '41',
+  
       },
       {
-        key: 'speed',
-        label: 'Animation Speed (ms)',
-        type: 'number',
-        description: 'The speed at which the pattern should animate',
-        defaultValue: 500,
-        min: 100,
-        max: 2000
+        key: 'board_type',
+        label: 'Board Type',
+        type: 'text',
+        description: '',
+        defaultValue: 'F',
+  
       },
       {
-        key: 'Address',
-        label: 'Address of the LED',
-        type: 'number',
-        description: 'The address of the LED',
-        defaultValue: 23,
-        min: 1,
-        max: 2000
+        key: 'command',
+        label: 'Command',
+        type: 'text',
+        description: 'Description',
+        defaultValue: '20',
+       
       },
       {
-        key: 'repeat',
-        label: 'Repeat Count',
-        type: 'number',
-        description: 'How many times to repeat the pattern',
-        defaultValue: 3,
-        min: 1,
-        max: 10
-      }
+        key: 'serial_number',
+        label: 'Serial Number',
+        type: 'text',
+        description: 'Serial Number',
+        defaultValue: '1234567890',
+       
+      },
+      {
+        key: 'width',
+        label: 'Width',
+        type: 'text',
+        description: 'Width',
+        defaultValue: '90',
+       
+      },
     ],
     defaultPayload: {
       pattern: 'sequence',
@@ -324,8 +337,9 @@ export const runTest = async (test: Test): Promise<Test> => {
       throw new Error('Invalid test type');
     }
 
+    // Send the form values directly without wrapping in config object
     const response = await axios.post(`${API_BASE_URL}${testDef.url}`, {
-      config: test.config,
+      ...test.config,  // Spread the config values directly
       testId: test.id
     });
 
@@ -356,12 +370,21 @@ export const generateId = (): string => {
 export const createDefaultTest = (type: string, name: string): Test => {
   const testDef = testDefinitions.find(def => def.id === type);
   
+  // Create a config object from the parameters' default values
+  const config: Record<string, any> = {};
+  
+  if (testDef) {
+    testDef.parameters.forEach(param => {
+      config[param.key] = param.defaultValue;
+    });
+  }
+  
   return {
     id: generateId(),
     type,
     name,
     status: 'pending',
-    config: testDef ? testDef.defaultPayload : {},
+    config: config, // Use the properly initialized config
     progress: 0
   };
 };
