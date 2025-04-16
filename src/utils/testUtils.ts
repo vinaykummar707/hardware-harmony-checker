@@ -264,7 +264,7 @@ export const testDefinitions: TestDefinition[] = [
   {
     id: 'device_control',
     name: 'Device Control Test',
-    url: '/ledtest',
+    url: '/deviceControl',
     description: 'Tests Device Control',
     parameters: [
       // {
@@ -337,17 +337,16 @@ export const runTest = async (test: Test): Promise<Test> => {
       throw new Error('Invalid test type');
     }
 
-    // Send the form values directly without wrapping in config object
     const response = await axios.post(`${API_BASE_URL}${testDef.url}`, {
-      ...test.config  // Spread the config values directly
+      ...test.config
     });
 
     return {
       ...test,
-      status: response.data.status as TestStatus,
+      status: response.data.status ? 'completed' : 'failed' as TestStatus,
       progress: 100,
-      duration: response.data.duration,
-      result: response.data.message
+      duration: 0,
+      result: response.data.status ? 'Test completed successfully' : 'Test failed'
     };
   } catch (error) {
     return {
