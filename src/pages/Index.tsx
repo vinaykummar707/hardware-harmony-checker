@@ -6,23 +6,6 @@ import { Separator } from '@/components/ui/separator';
 import { useEffect } from 'react';
 
 const Index = () => {
-	useEffect(() => {
-		navigator.serial
-			.requestPort()
-			.then((port) => {
-				// Port is an instance of SerialPort
-				console.log(port);
-				// List available ports
-				navigator.serial.getPorts().then((ports) => {
-					ports.forEach((p) => {
-						console.log(p.getInfo());
-					});
-				});
-			})
-			.catch((error) => {
-				console.error('There was an error:', error);
-			});
-	}, []);
 	return (
 		<div className="min-h-screen">
 			<header className="bg-white/80 backdrop-blur-sm border-b sticky top-0 z-10">
