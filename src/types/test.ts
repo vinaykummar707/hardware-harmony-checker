@@ -13,6 +13,7 @@ export interface TestParameter {
 export interface TestDefinition {
   id: string;
   name: string;
+  boardType: string;
   url: string;
   description: string;
   parameters: TestParameter[];

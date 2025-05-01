@@ -1,8 +1,7 @@
-
 // import { Test, TestStatus } from '@/store/testStore';
 // import axios from 'axios';
 
-// const API_BASE_URL = 'http://localhost:3000/api'; 
+// const API_BASE_URL = 'http://localhost:3000/api';
 
 // // Update this with your actual API endpoint
 
@@ -90,7 +89,7 @@
 // //   // Simulate API call with a delay based on test type
 // //   const minDelay = 1000;
 // //   const maxDelay = 5000;
-  
+
 // //   // Different tests take different amounts of time
 // //   const delays: Record<string, number> = {
 // //     'led': getRandomDelay(minDelay, maxDelay * 0.8),
@@ -100,36 +99,36 @@
 // //     'battery': getRandomDelay(minDelay * 1.5, maxDelay * 1.2),
 // //     'default': getRandomDelay(minDelay, maxDelay),
 // //   };
-  
+
 // //   const delay = delays[test.type] || delays.default;
-  
+
 // //   // Create a promise that updates progress periodically
 // //   return new Promise((resolve) => {
 // //     const updateInterval = 100; // Update every 100ms
 // //     let elapsed = 0;
-    
+
 // //     const interval = setInterval(() => {
 // //       elapsed += updateInterval;
 // //       const progress = Math.min(Math.floor((elapsed / delay) * 100), 99);
-      
+
 // //       // If we're done, clear the interval
 // //       if (elapsed >= delay) {
 // //         clearInterval(interval);
-        
+
 // //         // 85% success rate
 // //         const success = Math.random() > 0.15;
 // //         const status: TestStatus = success ? 'completed' : 'failed';
-        
+
 // //         const result = {
 // //           ...test,
 // //           status,
 // //           progress: 100,
 // //           duration: delay / 1000,
-// //           result: success 
-// //             ? getSuccessMessage(test.type) 
+// //           result: success
+// //             ? getSuccessMessage(test.type)
 // //             : getFailureMessage(test.type)
 // //         };
-        
+
 // //         resolve(result);
 // //       }
 // //     }, updateInterval);
@@ -175,7 +174,7 @@
 //       'No issues detected'
 //     ]
 //   };
-  
+
 //   const typeMessages = messages[type] || messages.default;
 //   return typeMessages[Math.floor(Math.random() * typeMessages.length)];
 // };
@@ -214,7 +213,7 @@
 //       'Issues detected during testing'
 //     ]
 //   };
-  
+
 //   const typeMessages = messages[type] || messages.default;
 //   return typeMessages[Math.floor(Math.random() * typeMessages.length)];
 // };
@@ -244,7 +243,7 @@
 //     'battery': { voltage: 3.7, current: 500, frequency: 60 },
 //     'default': {}
 //   };
-  
+
 //   return {
 //     id: generateId(),
 //     type,
@@ -261,134 +260,857 @@ import { TestDefinition } from '@/types/test';
 const API_BASE_URL = 'http://127.0.0.1:5000';
 
 export const testDefinitions: TestDefinition[] = [
-  {
-    id: 'device_control',
-    name: 'Device Control Test',
-    url: '/deviceControl',
-    description: 'Tests Device Control',
-    parameters: [
-      // {
-      //   key: 'address',
-      //   label: 'Address of the Board',
-      //   type: 'select',
-      //   description: 'The pattern to display on the LEDs',
-      //   defaultValue: 'sequence',
-      //   options: [
-      //     { value: 'sequence', label: 'Sequential' },
-      //     { value: 'alternate', label: 'Alternating' },
-      //     { value: 'random', label: 'Random' },
-      //     { value: 'pulse', label: 'Pulsing' }
-      //   ]
-      // },
-      {
-        key: 'address',
-        label: 'Address of the Board',
-        type: 'text',
-        description: '',
-        defaultValue: '41',
-  
-      },
-      {
-        key: 'board_type',
-        label: 'Board Type',
-        type: 'text',
-        description: '',
-        defaultValue: 'F',
-  
-      },
-      {
-        key: 'command',
-        label: 'Command',
-        type: 'text',
-        description: 'Description',
-        defaultValue: '20',
-       
-      },
-      {
-        key: 'serial_number',
-        label: 'Serial Number',
-        type: 'text',
-        description: 'Serial Number',
-        defaultValue: '1234567890',
-       
-      },
-      {
-        key: 'width',
-        label: 'Width',
-        type: 'text',
-        description: 'Width',
-        defaultValue: '90',
-       
-      },
-    ],
-    defaultPayload: {
-      pattern: 'sequence',
-      speed: 500,
-      repeat: 3
-    }
-  },
-  // Add more test definitions here
+	{
+		id: 'WRITEFBADDRESS',
+		name: 'WRITE FB ADDRESS',
+		boardType: 'FB',
+		url: '/deviceControl',
+		description: 'write address',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: 'write address',
+				defaultValue: '41',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '20',
+			},
+			{
+				key: 'width',
+				label: 'width',
+				type: 'text',
+				description: 'Description',
+				defaultValue: '90',
+			},
+			{
+				key: 'board_type',
+				label: 'board type',
+				type: 'text',
+				description: 'board_type',
+				defaultValue: 'F',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'Width',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'WRITEFBADDRESS',
+		name: 'WRITE FB ADDRESS',
+		boardType: 'FB',
+		url: '/deviceControl',
+		description: 'write address',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '42',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '20',
+			},
+			{
+				key: 'width',
+				label: 'width',
+				type: 'text',
+				description: 'Description',
+				defaultValue: '90',
+			},
+			{
+				key: 'board_type',
+				label: 'board type',
+				type: 'text',
+				description: 'board_type',
+				defaultValue: 'R',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'Width',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'WRITESBADDRESS',
+		name: 'WRITE SB ADDRESS',
+		boardType: 'SB',
+		url: '/deviceControl',
+		description: 'write address',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '43',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '20',
+			},
+			{
+				key: 'width',
+				label: 'width',
+				type: 'text',
+				description: 'Description',
+				defaultValue: '90',
+			},
+			{
+				key: 'board_type',
+				label: 'board type',
+				type: 'text',
+				description: 'board_type',
+				defaultValue: 'S',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'Width',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'WRITEFBADDRESS',
+		name: 'WRITE FB ADDRESS',
+		boardType: 'FB',
+		url: '/deviceControl',
+		description: 'write address',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '44',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '20',
+			},
+			{
+				key: 'width',
+				label: 'width',
+				type: 'text',
+				description: 'Description',
+				defaultValue: '90',
+			},
+			{
+				key: 'board_type',
+				label: 'board type',
+				type: 'text',
+				description: 'board_type',
+				defaultValue: 'I',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'Width',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'READFBADDRESS',
+		name: 'READ FB ADDRESS',
+		boardType: 'FB',
+		url: '/deviceControl',
+		description: 'read address',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '41',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '10',
+			},
+			{
+				key: 'board_type',
+				label: 'board type',
+				type: 'text',
+				description: 'board_type',
+				defaultValue: 'F',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'READRBADDRESS',
+		name: 'READ RB ADDRESS',
+		boardType: 'RB',
+		url: '/deviceControl',
+		description: 'read address',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '42',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '10',
+			},
+			{
+				key: 'board_type',
+				label: 'board type',
+				type: 'text',
+				description: 'board_type',
+				defaultValue: 'R',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'READSBADDRESS',
+		name: 'READ SB ADDRESS',
+		boardType: 'SB',
+		url: '/deviceControl',
+		description: 'read address',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '43',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '10',
+			},
+			{
+				key: 'board_type',
+				label: 'board type',
+				type: 'text',
+				description: 'board_type',
+				defaultValue: 'S',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'READIBADDRESS',
+		name: 'READ IB ADDRESS',
+		boardType: 'IB',
+		url: '/deviceControl',
+		description: 'read address',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '44',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '10',
+			},
+			{
+				key: 'board_type',
+				label: 'board type',
+				type: 'text',
+				description: 'board_type',
+				defaultValue: 'I',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'WRITEFBAUTOINTENSITY',
+		name: 'WRITE FB AUTO INTENSITY ',
+		boardType: 'FB',
+		url: '/deviceControl',
+		description: 'write auto intensity',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '41',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '80',
+			},
+			{
+				key: 'mode',
+				label: 'mode',
+				type: 'text',
+				description: 'Description',
+				defaultValue: 'A',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'WRITERBAUTOINTENSITY',
+		name: 'WRITE RB ADDRESS',
+		boardType: 'RB',
+		url: '/deviceControl',
+		description: 'write auto intensity',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '42',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '80',
+			},
+			{
+				key: 'mode',
+				label: 'mode',
+				type: 'text',
+				description: 'Description',
+				defaultValue: 'A',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'WRITESBAUTOINTENSITY',
+		name: 'WRITE SB AUTO INTENSITY ',
+		boardType: 'SB',
+		url: '/deviceControl',
+		description: 'write auto intensity',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '43',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '80',
+			},
+			{
+				key: 'mode',
+				label: 'mode',
+				type: 'text',
+				description: 'Description',
+				defaultValue: 'A',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'WRITEIBAUTOINTENSITY',
+		name: 'WRITE IB AUTO INTENSITY ',
+		boardType: 'IB',
+		url: '/deviceControl',
+		description: 'write auto intensity',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '44',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '80',
+			},
+			{
+				key: 'mode',
+				label: 'mode',
+				type: 'text',
+				description: 'Description',
+				defaultValue: 'A',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'WRITEFBMANUALINTENSITY',
+		name: 'WRITE FB MANUAL INTENSITY ',
+		boardType: 'FB',
+		url: '/deviceControl',
+		description: 'write manual intensity',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '41',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '80',
+			},
+			{
+				key: 'mode',
+				label: 'mode',
+				type: 'text',
+				description: 'Description',
+				defaultValue: 'M',
+			},
+			{
+				key: 'value',
+				label: 'value',
+				type: 'text',
+				description: 'Description',
+				defaultValue: '80',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'WRITERBMANUALINTENSITY',
+		name: 'WRITE RB MANUAL INTENSITY ',
+		boardType: 'RB',
+		url: '/deviceControl',
+		description: 'write manual intensity',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '42',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '80',
+			},
+			{
+				key: 'mode',
+				label: 'mode',
+				type: 'text',
+				description: 'Description',
+				defaultValue: 'M',
+			},
+			{
+				key: 'value',
+				label: 'value',
+				type: 'text',
+				description: 'Description',
+				defaultValue: '10',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'WRITESBMANUALINTENSITY',
+		name: 'WRITE SB MANUAL INTENSITY ',
+		boardType: 'SB',
+		url: '/deviceControl',
+		description: 'write manual intensity',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '43',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '80',
+			},
+			{
+				key: 'mode',
+				label: 'mode',
+				type: 'text',
+				description: 'Description',
+				defaultValue: 'M',
+			},
+			{
+				key: 'value',
+				label: 'value',
+				type: 'text',
+				description: 'Description',
+				defaultValue: '30',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'WRITEIBMANUALINTENSITY',
+		name: 'WRITE IB MANUAL INTENSITY ',
+		boardType: 'IB',
+		url: '/deviceControl',
+		description: 'write manual intensity',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '44',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '80',
+			},
+			{
+				key: 'mode',
+				label: 'mode',
+				type: 'text',
+				description: 'Description',
+				defaultValue: 'M',
+			},
+			{
+				key: 'value',
+				label: 'value',
+				type: 'text',
+				description: 'Description',
+				defaultValue: '80',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'READFBINTENSITY',
+		name: 'READ FB ADDRESS',
+		boardType: 'FB',
+		url: '/deviceControl',
+		description: 'read intensity',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '41',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '81',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'READRBINTENSITY',
+		name: 'READ RB ADDRESS',
+		boardType: 'RB',
+		url: '/deviceControl',
+		description: 'read intensity',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '42',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '81',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'READSBINTENSITY',
+		name: 'READ SB ADDRESS',
+		boardType: 'SB',
+		url: '/deviceControl',
+		description: 'read intensity',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '43',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '81',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	{
+		id: 'READIBINTENSITY',
+		name: 'READ IB ADDRESS',
+		boardType: 'IB',
+		url: '/deviceControl',
+		description: 'read intensity',
+		parameters: [
+			{
+				key: 'address',
+				label: 'Address of the Board',
+				type: 'text',
+				description: '',
+				defaultValue: '44',
+			},
+			{
+				key: 'command',
+				label: 'Command',
+				type: 'text',
+				description: '',
+				defaultValue: '81',
+			},
+			{
+				key: 'serial_number',
+				label: 'Serial Number',
+				type: 'text',
+				description: 'serial number',
+				defaultValue: '12345',
+			},
+		],
+		defaultPayload: {},
+	},
+	// Add more test definitions here
 ];
 
 export const runTest = async (test: Test): Promise<Test> => {
-  try {
-    const testDef = testDefinitions.find(def => def.id === test.type);
-    if (!testDef) {
-      throw new Error('Invalid test type');
-    }
+	try {
+		const testDef = testDefinitions.find((def) => def.id === test.type);
+		if (!testDef) {
+			throw new Error('Invalid test type');
+		}
 
-    const response = await axios.post(`${API_BASE_URL}${testDef.url}`, {
-      ...test.config
-    });
+		const response = await axios.post(`${API_BASE_URL}${testDef.url}`, {
+			...test.config,
+		});
 
-    return {
-      ...test,
-      status: response.data.status ? 'completed' : 'failed' as TestStatus,
-      progress: 100,
-      duration: 0,
-      result: response.data.status ? 'Test completed successfully' : 'Test failed'
-    };
-  } catch (error) {
-    return {
-      ...test,
-      status: 'failed',
-      progress: 100,
-      duration: 0,
-      result: error instanceof Error ? error.message : 'Test failed due to API error'
-    };
-  }
+		return {
+			...test,
+			status: response.data.status ? 'completed' : ('failed' as TestStatus),
+			progress: 100,
+			duration: 0,
+			result: response.data.output,
+		};
+	} catch (error) {
+		return {
+			...test,
+			status: 'failed',
+			progress: 100,
+			duration: 0,
+			result:
+				error instanceof Error ? error.message : 'Test failed due to API error',
+		};
+	}
 };
 
 // Function to generate a unique ID
 export const generateId = (): string => {
-  return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+	return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
 };
 
 // Function to generate a new test with default configuration
 export const createDefaultTest = (type: string, name: string): Test => {
-  const testDef = testDefinitions.find(def => def.id === type);
-  
-  // Create a config object from the parameters' default values
-  const config: Record<string, any> = {};
-  
-  if (testDef) {
-    testDef.parameters.forEach(param => {
-      config[param.key] = param.defaultValue;
-    });
-  }
-  
-  return {
-    id: generateId(),
-    type,
-    name,
-    status: 'pending',
-    config: config, // Use the properly initialized config
-    progress: 0
-  };
+	const testDef = testDefinitions.find((def) => def.id === type);
+
+	// Create a config object from the parameters' default values
+	const config: Record<string, any> = {};
+
+	if (testDef) {
+		testDef.parameters.forEach((param) => {
+			config[param.key] = param.defaultValue;
+		});
+	}
+
+	return {
+		id: generateId(),
+		type,
+		name,
+		status: 'pending',
+		config: config, // Use the properly initialized config
+		progress: 0,
+	};
 };
 
 // Export test types based on definitions
-export const TEST_TYPES = testDefinitions.map(def => ({
-  id: def.id,
-  name: def.name
+export const TEST_TYPES = testDefinitions.map((def) => ({
+	id: def.id,
+	name: def.name,
 }));
