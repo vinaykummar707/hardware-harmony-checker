@@ -49,7 +49,7 @@ export function TestItem({
         );
       default:
         return (
-          <Badge variant="outline" className="bg-muted/10 text-muted-foreground border-muted/20">
+          <Badge variant="outline" className="">
             Pending
           </Badge>
         );
@@ -72,19 +72,21 @@ export function TestItem({
   return (
     <div 
       className={cn(
-        "glass-card p-3 flex justify-between items-center rounded-lg border border-stone-200 w-full transition-all relative",
+        "glass-card p-4 flex justify-between items-center rounded-lg border border-stone-200 w-full transition-all relative",
         getStatusClass()
       )}
     >
       <div className="flex w-full justify-between items-center gap-2">
         <div>
-        <div className="flex justify-between items-start mb-1">
+        
+        <h3 className="font-bold text-md text-foreground">{test.name}</h3>
+        <p className="text-sm text-muted-foreground mt-1">
+          {test.result }
+        </p>
+
+        <div className="flex justify-between items-start mt-2">
           {getStatusBadge()}
         </div>
-        <h3 className="font-semibold text-md text-foreground">{test.name}</h3>
-        <p className="text-sm text-muted-foreground mt-1">
-          {test.result || `Type: ${test.type}`}
-        </p>
         </div>
      
 
@@ -93,35 +95,29 @@ export function TestItem({
           <div className="mt-3 flex items-center space-x-2 transition-opacity duration-200">
             {onRun && (test.status === 'pending' || test.status === 'completed' || test.status === 'failed') && (
               <Button
-                variant="default"
-                size="sm"
+                variant="outline"
                 onClick={() => onRun(test)}
                 disabled={disabled || test.status === 'running'}
-                className="h-8 text-xs"
               >
-                <Play className="h-3.5 w-3.5 mr-1" />
-                Run Test
+                <Play className="" />
+                Run
               </Button>
             )}
             <Button
-              variant="default"
-              size="sm"
+              variant="outline"
               onClick={() => onConfigure(test)}
               disabled={disabled || test.status === 'running'}
-              className="h-8 text-xs"
             >
-              <Settings className="h-3.5 w-3.5 mr-1" />
-              Configure
+              <Settings className="" />
+              Settings
             </Button>
             <Button
-              variant="destructive"
-              size="sm"
+              variant="outline"
               onClick={() => onRemove(test.id)}
               disabled={disabled || test.status === 'running'}
-              className="h-8 text-xs"
             >
-              <Trash className="h-3.5 w-3.5 mr-1" />
-              Remove
+              <Trash className="" />
+              Delete
             </Button>
           </div>
         }

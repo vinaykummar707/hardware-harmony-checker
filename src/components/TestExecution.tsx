@@ -306,11 +306,9 @@ export function TestExecution() {
 
         <div className="flex items-center space-x-2">
           <Button 
-            variant="outline" 
-            size="sm" 
             onClick={clearTests}
             disabled={isRunning || tests.length === 0}
-            className="text-xs h-8"
+            className=""
           >
             <Trash2 className="h-3.5 w-3.5 mr-1" />
             Clear All
@@ -318,8 +316,7 @@ export function TestExecution() {
           <Button 
             onClick={handleRunAllTests}
             disabled={isRunning || tests.filter(t => t.status === 'pending').length === 0}
-            size="sm"
-            className="text-xs h-8"
+            className=""
           >
             <Play className="h-3.5 w-3.5 mr-1" />
             Run All Tests
@@ -336,8 +333,8 @@ export function TestExecution() {
           </p>
         </div>
       ) : (
-        <ScrollArea className="h-[420px] pr-4">
-          <div className="space-y-3">
+        // <ScrollArea className="h-[820px] ">
+          <div className="grid grid-cols-1 gap-1">
             {tests.map(test => (
               <TestItem
                 key={test.id}
@@ -349,7 +346,7 @@ export function TestExecution() {
               />
             ))}
           </div>
-        </ScrollArea>
+        // </ScrollArea>
       )}
       
       {runSingleTest.isError && (

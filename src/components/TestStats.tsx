@@ -21,7 +21,7 @@ export function TestStats() {
         Test Statistics
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols- md:grid-cols-5 gap-4">
         <StatCard 
           title="Total Tests" 
           value={tests.length} 
