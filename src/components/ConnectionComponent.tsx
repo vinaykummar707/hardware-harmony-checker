@@ -52,9 +52,9 @@ const ConnectionComponent = () => {
       serial_number: "12345",
     });
 
-    console.log("Response:", response.data);
+    console.log("Response:", JSON.parse(response.data));
 
-    const ports = response.data?.output?.com_ports;
+    const ports = JSON.parse(response.data?.output).com_ports;
     if (!ports) {
       toast.error("No COM ports found.");
       return [];
