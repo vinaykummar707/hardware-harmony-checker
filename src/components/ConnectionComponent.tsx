@@ -25,7 +25,7 @@ import { toast } from "react-toastify";
 // Add these types near the top of the file
 interface ComPortsResponse {
   status: boolean;
-  output: string;
+  output: ParsedOutput;
 }
 
 interface ParsedOutput {
@@ -35,7 +35,7 @@ interface ParsedOutput {
 // Add this interface near other interfaces
 interface ConnectPortResponse {
   status: boolean;
-  output: string;
+  output: ParsedOutput;
 }
 
 const ConnectionComponent = () => {
@@ -60,7 +60,8 @@ const ConnectionComponent = () => {
       }
     );
 
-    const parsedOutput = JSON.parse(response.data.output) as ParsedOutput;
+    // ✅ No need to parse — it's already an object
+    const parsedOutput = response.data.output;
     return parsedOutput.com_ports;
   };
 
