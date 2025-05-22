@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Select,
   SelectContent,
@@ -46,30 +46,38 @@ const ConnectionComponent = () => {
 
   const API_BASE_URL = "http://127.0.0.1:5000";
 
-  const { data: ports } = useQuery({
-    queryKey: ["comPorts"],
-    retry: false,
-    queryFn: async () => {
-      try {
-        const response = await axios.post<ComPortsResponse>(
-          `${API_BASE_URL}/listComPorts`,
-          JSON.stringify({
-            command: "list-com-ports",
-            serial_number: "12345",
-          }),
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const parsedOutput = JSON.parse(response.data.output) as ParsedOutput;
-        setAvailablePorts(parsedOutput.com_ports);
-        return parsedOutput.com_ports;
-      } catch (error) {
-        toast.error("Failed to fetch COM ports");
-        throw error;
+  const postComPorts = async (): Promise<string[]> => {
+    const response = await axios.post<ComPortsResponse>(
+      `${API_BASE_URL}/listComPorts`,
+      {
+        command: "list-com-ports",
+        serial_number: "12345",
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
+    );
+
+    const parsedOutput = JSON.parse(response.data.output) as ParsedOutput;
+    return parsedOutput.com_ports;
+  };
+
+  const {
+    mutate: fetchComPorts,
+    data,
+    isPending,
+    isSuccess,
+    isError,
+  } = useMutation({
+    mutationFn: postComPorts,
+    onSuccess: (data) => {
+      // Optional: update local state if needed
+      setAvailablePorts(data);
+    },
+    onError: () => {
+      toast.error("Failed to fetch COM ports");
     },
   });
 
@@ -99,6 +107,10 @@ const ConnectionComponent = () => {
     if (!selectedPort) return;
     connectMutation.mutate();
   };
+
+  useEffect(() => {
+    fetchComPorts(); // trigger the mutation once on mount
+  }, [fetchComPorts]);
 
   return (
     <div className="h-screen w-screen flex items-center justify-center">
