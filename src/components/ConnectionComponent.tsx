@@ -7,7 +7,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { useNavigate } from "react-router-dom";
@@ -35,23 +42,34 @@ const ConnectionComponent = () => {
   const [selectedPort, setSelectedPort] = useState<string>("");
   const navigate = useNavigate();
 
-  const API_BASE_URL = 'http://127.0.0.1:5000';
+  const API_BASE_URL = "http://127.0.0.1:5000";
 
   const { data: ports } = useQuery({
-    queryKey: ['comPorts'],
+    queryKey: ["comPorts"],
     retry: false,
     queryFn: async () => {
       try {
-        const response = await axios.post<ComPortsResponse>(`${API_BASE_URL}/listComPorts`);
+        const response = await axios.post<ComPortsResponse>(
+          `${API_BASE_URL}/listComPorts`,
+          JSON.stringify({
+            command: "list-com-ports",
+            serial_number: "12345",
+          }),
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const parsedOutput = JSON.parse(response.data.output) as ParsedOutput;
         return parsedOutput.com_ports;
       } catch (error) {
         toast.error("Failed to fetch COM ports");
         throw error;
       }
-    }
+    },
   });
-  
+
   const availablePorts = ports || [];
 
   const connectMutation = useMutation({
@@ -59,7 +77,7 @@ const ConnectionComponent = () => {
       const payload = {
         command: "update-com-port",
         serial_number: "12345",
-        com_port: selectedPort
+        com_port: selectedPort,
       };
       const response = await axios.post<ConnectPortResponse>(
         `${API_BASE_URL}/comport`,
@@ -69,11 +87,11 @@ const ConnectionComponent = () => {
     },
     onSuccess: (data) => {
       toast.success(`Successfully connected to ${data.output}`);
-      navigate('/tests');
+      navigate("/tests");
     },
     onError: (error) => {
       toast.error("Failed to connect to port");
-    }
+    },
   });
 
   const handleConnect = async () => {
@@ -83,46 +101,46 @@ const ConnectionComponent = () => {
 
   return (
     <div className="h-screen w-screen flex items-center justify-center">
-
       <Card className="w-[280px] p-2 rounded-lg flex flex-col justify-center">
-      <CardHeader className="space-y-4">
-        <CardTitle>Connect</CardTitle>
-        <CardDescription>Select from available ports to start testing the boards.</CardDescription>
-      </CardHeader>
-      <CardContent className="">
-        <form>
-          <div className="grid w-full items-center gap-4">
-            
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="framework">Ports</Label>
-              <Select  value={selectedPort} onValueChange={setSelectedPort}>
-                <SelectTrigger id="framework">
-                <SelectValue placeholder="Select COM Port" />
-                </SelectTrigger>
-                <SelectContent position="popper">
-                {availablePorts.map((port) => (
-                <SelectItem key={port} value={port}>
-                  {port}
-                </SelectItem>
-              ))}
-                </SelectContent>
-              </Select>
+        <CardHeader className="space-y-4">
+          <CardTitle>Connect</CardTitle>
+          <CardDescription>
+            Select from available ports to start testing the boards.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="">
+          <form>
+            <div className="grid w-full items-center gap-4">
+              <div className="flex flex-col space-y-1.5">
+                <Label htmlFor="framework">Ports</Label>
+                <Select value={selectedPort} onValueChange={setSelectedPort}>
+                  <SelectTrigger id="framework">
+                    <SelectValue placeholder="Select COM Port" />
+                  </SelectTrigger>
+                  <SelectContent position="popper">
+                    {availablePorts.map((port) => (
+                      <SelectItem key={port} value={port}>
+                        {port}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
-          </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex ">
-        <Button 
-          onClick={handleConnect} 
-          className="w-full" 
-          variant="default" 
-          size="default"
-          disabled={!selectedPort || connectMutation.isPending}
-        >
-          {connectMutation.isPending ? "Connecting..." : "Submit"}
-        </Button>
-      </CardFooter>
-    </Card>
+          </form>
+        </CardContent>
+        <CardFooter className="flex ">
+          <Button
+            onClick={handleConnect}
+            className="w-full"
+            variant="default"
+            size="default"
+            disabled={!selectedPort || connectMutation.isPending}
+          >
+            {connectMutation.isPending ? "Connecting..." : "Submit"}
+          </Button>
+        </CardFooter>
+      </Card>
     </div>
   );
 };
