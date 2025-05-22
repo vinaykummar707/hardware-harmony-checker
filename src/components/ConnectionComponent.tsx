@@ -42,6 +42,8 @@ const ConnectionComponent = () => {
   const [selectedPort, setSelectedPort] = useState<string>("");
   const navigate = useNavigate();
 
+  const [availablePorts, setAvailablePorts] = useState<string[]>([]);
+
   const API_BASE_URL = "http://127.0.0.1:5000";
 
   const { data: ports } = useQuery({
@@ -62,6 +64,7 @@ const ConnectionComponent = () => {
           }
         );
         const parsedOutput = JSON.parse(response.data.output) as ParsedOutput;
+        setAvailablePorts(parsedOutput.com_ports);
         return parsedOutput.com_ports;
       } catch (error) {
         toast.error("Failed to fetch COM ports");
@@ -69,8 +72,6 @@ const ConnectionComponent = () => {
       }
     },
   });
-
-  const availablePorts = ports || [];
 
   const connectMutation = useMutation({
     mutationFn: async () => {
