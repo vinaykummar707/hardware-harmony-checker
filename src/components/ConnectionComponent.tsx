@@ -47,25 +47,20 @@ const ConnectionComponent = () => {
   const API_BASE_URL = "http://127.0.0.1:5000";
 
   const postComPorts = async (): Promise<string[]> => {
-    const response = await axios.post<ComPortsResponse>(
-      `${API_BASE_URL}/listComPorts`,
-      {
-        command: "list-com-ports",
-        serial_number: "12345",
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    const response = await axios.post(`${API_BASE_URL}/listComPorts`, {
+      command: "list-com-ports",
+      serial_number: "12345",
+    });
 
-    // ✅ No need to parse — it's already an object
-    const parsedOutput = response.data.output;
-    console.log(response.data);
-    console.log(response.data.output);
-    console.log(response.data.output.com_ports);
-    return parsedOutput.com_ports;
+    console.log("Response:", response.data);
+
+    const ports = response.data?.output?.com_ports;
+    if (!ports) {
+      toast.error("No COM ports found.");
+      return [];
+    }
+
+    return ports;
   };
 
   const {
@@ -97,7 +92,7 @@ const ConnectionComponent = () => {
         `${API_BASE_URL}/comport`,
         payload
       );
-      console.log(response.data)
+      console.log(response.data);
       return response.data;
     },
     onSuccess: (data) => {
@@ -116,7 +111,7 @@ const ConnectionComponent = () => {
 
   useEffect(() => {
     fetchComPorts(); // trigger the mutation once on mount
-    console.log("available ports", availablePorts)
+    console.log("available ports", availablePorts);
   }, [fetchComPorts, availablePorts]);
 
   return (
