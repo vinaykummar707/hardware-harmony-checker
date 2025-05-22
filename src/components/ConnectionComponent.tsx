@@ -112,7 +112,7 @@ const ConnectionComponent = () => {
   useEffect(() => {
     fetchComPorts(); // trigger the mutation once on mount
     console.log("available ports", availablePorts);
-  }, [fetchComPorts, availablePorts]);
+  }, [fetchComPorts]);
 
   return (
     <div className="h-screen w-screen flex items-center justify-center">
