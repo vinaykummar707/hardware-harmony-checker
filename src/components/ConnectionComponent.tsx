@@ -62,6 +62,9 @@ const ConnectionComponent = () => {
 
     // ✅ No need to parse — it's already an object
     const parsedOutput = response.data.output;
+    console.log(response.data);
+    console.log(response.data.output);
+    console.log(response.data.output.com_ports);
     return parsedOutput.com_ports;
   };
 
@@ -75,6 +78,7 @@ const ConnectionComponent = () => {
     mutationFn: postComPorts,
     onSuccess: (data) => {
       // Optional: update local state if needed
+      console.log("success", data);
       setAvailablePorts(data);
     },
     onError: () => {
@@ -93,6 +97,7 @@ const ConnectionComponent = () => {
         `${API_BASE_URL}/comport`,
         payload
       );
+      console.log(response.data)
       return response.data;
     },
     onSuccess: (data) => {
@@ -111,7 +116,8 @@ const ConnectionComponent = () => {
 
   useEffect(() => {
     fetchComPorts(); // trigger the mutation once on mount
-  }, [fetchComPorts]);
+    console.log("available ports", availablePorts)
+  }, [fetchComPorts, availablePorts]);
 
   return (
     <div className="h-screen w-screen flex items-center justify-center">
