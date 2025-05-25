@@ -92,7 +92,13 @@ import { useTestStore } from '@/store/testStore';
 import { testDefinitions, createDefaultTest } from '@/utils/testUtils';
 import { Plus } from 'lucide-react';
 
-export function TestSelection() {
+type BoardType = string | 'FB' | 'SB' | 'RB' | 'IB';
+
+interface IndexProps {
+	selectedBoard: BoardType;
+}
+
+export function TestSelection({ selectedBoard }: IndexProps) {
 	const selectedType = useTestStore((state) => state.selectedTestType);
 	const setSelectedTestType = useTestStore(
 		(state) => state.setSelectedTestType
@@ -156,15 +162,17 @@ export function TestSelection() {
 						<SelectItem value="__all__" className="font-semibold text-primary">
 							Select All
 						</SelectItem>
-						{testDefinitions.map((testDef) => (
-							<SelectItem
-								key={testDef.id}
-								value={testDef.id}
-								className="cursor-pointer"
-							>
-								{testDef.name}
-							</SelectItem>
-						))}
+						{testDefinitions
+							.filter((testDef) => testDef.boardType === selectedBoard)
+							.map((testDef) => (
+								<SelectItem
+									key={testDef.id}
+									value={testDef.id}
+									className="cursor-pointer"
+								>
+									{testDef.name}
+								</SelectItem>
+							))}
 					</SelectContent>
 				</Select>
 

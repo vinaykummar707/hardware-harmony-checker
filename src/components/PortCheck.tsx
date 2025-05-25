@@ -15,13 +15,13 @@ export const PortCheck = () => {
     mutationFn: checkPortStatus,
     onSuccess: (data: PortStatusResponse) => {
       if (!data || !data.output || data.output.trim() === '') {
-        navigate('/connect');
+        // navigate('/connect');
       } else {
-        navigate('/tests');
+        // navigate('/tests');
       }
     },
     onError: () => {
-      navigate('/connect');
+      // navigate('/connect');
     }
   });
 

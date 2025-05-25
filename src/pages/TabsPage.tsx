@@ -3,22 +3,29 @@ import { TestStats } from '@/components/TestStats';
 import { TestExecution } from '@/components/TestExecution';
 import { TestConfigModal } from '@/components/TestConfig';
 import { Separator } from '@/components/ui/separator';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Index from './Index';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@radix-ui/react-tabs';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useReadFBAddress, useWriteFBAddress } from '@/utils/portUtils';
 
 const TabsPAge = () => {
+
+    const [selectedBoard, setSelectedBoard] = useState('FB');
+
     const BOARD_TYPES = [
         { value: 'FB', label: 'Front Board' },
         { value: 'SB', label: 'Side Board' },
         { value: 'RB', label: 'Rear Board' },
         { value: 'IB', label: 'Internal Board' },
     ];
+
+   
+
     return (
-        <div className="min-h-screen ">
+        <div className="min-h-screen bg-stone-100 ">
             <header className="bg-white   border-b sticky top-0 z-10">
                 <div className="container max-w-6xl  p-4 flex items-center justify-between">
                     <div className="flex items-center space-x-2">
@@ -56,7 +63,8 @@ const TabsPAge = () => {
                     CHOOSE BOARD TYPE
                 </div>
 
-                <Tabs defaultValue="account" className="">
+                                
+                <Tabs defaultValue="FB" onValueChange={setSelectedBoard}  className="" >
                     <TabsList className="flex  mb-4  ">
                         {BOARD_TYPES.map((board) => (
                             <TabsTrigger
@@ -77,25 +85,25 @@ const TabsPAge = () => {
                         {/* <Separator /> */}
 
 
-                        <Index />
+                        <Index selectedBoard={selectedBoard} />
                     </TabsContent>
 
                     <TabsContent value="SB" className="">
                         <Separator />
 
-                        <Index />
+                        <Index selectedBoard={selectedBoard} />
                     </TabsContent>
 
                     <TabsContent value="RB" className="">
                         <Separator />
 
-                        <Index />
+                        <Index selectedBoard={selectedBoard} />
                     </TabsContent>
 
                     <TabsContent value="IB" className="">
                         <Separator />
 
-                        <Index />
+                        <Index selectedBoard={selectedBoard} />
                     </TabsContent>
                 </Tabs>
 

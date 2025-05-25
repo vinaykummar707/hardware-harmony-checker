@@ -52,14 +52,9 @@ const ConnectionComponent = () => {
       serial_number: "12345",
     });
 
-    console.log("Response:", JSON.parse(response.data));
+    console.log("Response:",response.data);
 
-    const ports = JSON.parse(response.data?.output).com_ports;
-    if (!ports) {
-      toast.error("No COM ports found.");
-      return [];
-    }
-
+    const ports = response.data?.output.com_ports;
     return ports;
   };
 
@@ -73,7 +68,7 @@ const ConnectionComponent = () => {
     mutationFn: postComPorts,
     onSuccess: (data) => {
       // Optional: update local state if needed
-      console.log("success", data);
+      toast.success("Listed Ports Successfully");
       setAvailablePorts(data);
     },
     onError: () => {
@@ -111,8 +106,7 @@ const ConnectionComponent = () => {
 
   useEffect(() => {
     fetchComPorts(); // trigger the mutation once on mount
-    console.log("available ports", availablePorts);
-  }, [availablePorts]);
+  }, [fetchComPorts]);
 
   return (
     <div className="h-screen w-screen flex items-center justify-center">
