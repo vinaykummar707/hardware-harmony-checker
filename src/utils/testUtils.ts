@@ -260,795 +260,2396 @@ import { TestDefinition } from '@/types/test';
 const API_BASE_URL = 'http://127.0.0.1:5000';
 
 export const testDefinitions: TestDefinition[] = [
+
 	{
-		id: 'WRITEFBADDRESS',
-		name: 'WRITE FB ADDRESS',
-		boardType: 'FB',
-		url: '/deviceControl',
-		description: 'write address',
-		parameters: [
+		"id": "WRITEFBADDRESS",
+		"name": "WRITE FB ADDRESS",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "write address",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: 'write address',
-				defaultValue: '41',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "write address",
+				"defaultValue": "41"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '20',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "20"
 			},
 			{
-				key: 'width',
-				label: 'width',
-				type: 'text',
-				description: 'Description',
-				defaultValue: '90',
+				"key": "width",
+				"label": "width",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "90"
 			},
 			{
-				key: 'board_type',
-				label: 'board type',
-				type: 'text',
-				description: 'board_type',
-				defaultValue: 'F',
+				"key": "board_type",
+				"label": "board type",
+				"type": "text",
+				"description": "board_type",
+				"defaultValue": "F"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'Width',
-				defaultValue: '12345',
-			},
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "Width",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'WRITEFBADDRESS',
-		name: 'WRITE FB ADDRESS',
-		boardType: 'FB',
-		url: '/deviceControl',
-		description: 'write address',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITERBADDRESS",
+		"name": "WRITE RB ADDRESS",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "write address",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '42',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '20',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "20"
 			},
 			{
-				key: 'width',
-				label: 'width',
-				type: 'text',
-				description: 'Description',
-				defaultValue: '90',
+				"key": "width",
+				"label": "width",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "90"
 			},
 			{
-				key: 'board_type',
-				label: 'board type',
-				type: 'text',
-				description: 'board_type',
-				defaultValue: 'R',
+				"key": "board_type",
+				"label": "board type",
+				"type": "text",
+				"description": "board_type",
+				"defaultValue": "R"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'Width',
-				defaultValue: '12345',
-			},
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "Width",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'WRITESBADDRESS',
-		name: 'WRITE SB ADDRESS',
-		boardType: 'SB',
-		url: '/deviceControl',
-		description: 'write address',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITESBADDRESS",
+		"name": "WRITE SB ADDRESS",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "write address",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '43',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '20',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "20"
 			},
 			{
-				key: 'width',
-				label: 'width',
-				type: 'text',
-				description: 'Description',
-				defaultValue: '90',
+				"key": "width",
+				"label": "width",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "90"
 			},
 			{
-				key: 'board_type',
-				label: 'board type',
-				type: 'text',
-				description: 'board_type',
-				defaultValue: 'S',
+				"key": "board_type",
+				"label": "board type",
+				"type": "text",
+				"description": "board_type",
+				"defaultValue": "S"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'Width',
-				defaultValue: '12345',
-			},
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "Width",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'WRITEFBADDRESS',
-		name: 'WRITE FB ADDRESS',
-		boardType: 'FB',
-		url: '/deviceControl',
-		description: 'write address',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITEIBADDRESS",
+		"name": "WRITE IB ADDRESS",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "write address",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '44',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '20',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "20"
 			},
 			{
-				key: 'width',
-				label: 'width',
-				type: 'text',
-				description: 'Description',
-				defaultValue: '90',
+				"key": "width",
+				"label": "width",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "90"
 			},
 			{
-				key: 'board_type',
-				label: 'board type',
-				type: 'text',
-				description: 'board_type',
-				defaultValue: 'I',
+				"key": "board_type",
+				"label": "board type",
+				"type": "text",
+				"description": "board_type",
+				"defaultValue": "I"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'Width',
-				defaultValue: '12345',
-			},
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "Width",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'READFBADDRESS',
-		name: 'READ FB ADDRESS',
-		boardType: 'FB',
-		url: '/deviceControl',
-		description: 'read address',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "READFBADDRESS",
+		"name": "READ FB ADDRESS",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "read address",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '41',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '10',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "10"
 			},
 			{
-				key: 'board_type',
-				label: 'board type',
-				type: 'text',
-				description: 'board_type',
-				defaultValue: 'F',
+				"key": "board_type",
+				"label": "board type",
+				"type": "text",
+				"description": "board_type",
+				"defaultValue": "F"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'READRBADDRESS',
-		name: 'READ RB ADDRESS',
-		boardType: 'RB',
-		url: '/deviceControl',
-		description: 'read address',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "READRBADDRESS",
+		"name": "READ RB ADDRESS",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "read address",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '42',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '10',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "10"
 			},
 			{
-				key: 'board_type',
-				label: 'board type',
-				type: 'text',
-				description: 'board_type',
-				defaultValue: 'R',
+				"key": "board_type",
+				"label": "board type",
+				"type": "text",
+				"description": "board_type",
+				"defaultValue": "R"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'READSBADDRESS',
-		name: 'READ SB ADDRESS',
-		boardType: 'SB',
-		url: '/deviceControl',
-		description: 'read address',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "READSBADDRESS",
+		"name": "READ SB ADDRESS",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "read address",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '43',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '10',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "10"
 			},
 			{
-				key: 'board_type',
-				label: 'board type',
-				type: 'text',
-				description: 'board_type',
-				defaultValue: 'S',
+				"key": "board_type",
+				"label": "board type",
+				"type": "text",
+				"description": "board_type",
+				"defaultValue": "S"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'READIBADDRESS',
-		name: 'READ IB ADDRESS',
-		boardType: 'IB',
-		url: '/deviceControl',
-		description: 'read address',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "READIBADDRESS",
+		"name": "READ IB ADDRESS",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "read address",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '44',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '10',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "10"
 			},
 			{
-				key: 'board_type',
-				label: 'board type',
-				type: 'text',
-				description: 'board_type',
-				defaultValue: 'I',
+				"key": "board_type",
+				"label": "board type",
+				"type": "text",
+				"description": "board_type",
+				"defaultValue": "I"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'WRITEFBAUTOINTENSITY',
-		name: 'WRITE FB AUTO INTENSITY ',
-		boardType: 'FB',
-		url: '/deviceControl',
-		description: 'write auto intensity',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITEFBAUTOINTENSITY",
+		"name": "WRITE FB AUTO INTENSITY ",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "write auto intensity",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '41',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '80',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "80"
 			},
 			{
-				key: 'mode',
-				label: 'mode',
-				type: 'text',
-				description: 'Description',
-				defaultValue: 'A',
+				"key": "mode",
+				"label": "mode",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "A"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'WRITERBAUTOINTENSITY',
-		name: 'WRITE RB ADDRESS',
-		boardType: 'RB',
-		url: '/deviceControl',
-		description: 'write auto intensity',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITERBAUTOINTENSITY",
+		"name": "WRITE RB ADDRESS",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "write auto intensity",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '42',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '80',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "80"
 			},
 			{
-				key: 'mode',
-				label: 'mode',
-				type: 'text',
-				description: 'Description',
-				defaultValue: 'A',
+				"key": "mode",
+				"label": "mode",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "A"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'WRITESBAUTOINTENSITY',
-		name: 'WRITE SB AUTO INTENSITY ',
-		boardType: 'SB',
-		url: '/deviceControl',
-		description: 'write auto intensity',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITESBAUTOINTENSITY",
+		"name": "WRITE SB AUTO INTENSITY ",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "write auto intensity",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '43',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '80',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "80"
 			},
 			{
-				key: 'mode',
-				label: 'mode',
-				type: 'text',
-				description: 'Description',
-				defaultValue: 'A',
+				"key": "mode",
+				"label": "mode",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "A"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'WRITEIBAUTOINTENSITY',
-		name: 'WRITE IB AUTO INTENSITY ',
-		boardType: 'IB',
-		url: '/deviceControl',
-		description: 'write auto intensity',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITEIBAUTOINTENSITY",
+		"name": "WRITE IB AUTO INTENSITY ",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "write auto intensity",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '44',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '80',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "80"
 			},
 			{
-				key: 'mode',
-				label: 'mode',
-				type: 'text',
-				description: 'Description',
-				defaultValue: 'A',
+				"key": "mode",
+				"label": "mode",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "A"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'WRITEFBMANUALINTENSITY',
-		name: 'WRITE FB MANUAL INTENSITY ',
-		boardType: 'FB',
-		url: '/deviceControl',
-		description: 'write manual intensity',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITEFBMANUALINTENSITY",
+		"name": "WRITE FB MANUAL INTENSITY ",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "write manual intensity",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '41',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '80',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "80"
 			},
 			{
-				key: 'mode',
-				label: 'mode',
-				type: 'text',
-				description: 'Description',
-				defaultValue: 'M',
+				"key": "mode",
+				"label": "mode",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "M"
 			},
 			{
-				key: 'value',
-				label: 'value',
-				type: 'text',
-				description: 'Description',
-				defaultValue: '80',
+				"key": "value",
+				"label": "value",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "80"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'WRITERBMANUALINTENSITY',
-		name: 'WRITE RB MANUAL INTENSITY ',
-		boardType: 'RB',
-		url: '/deviceControl',
-		description: 'write manual intensity',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITERBMANUALINTENSITY",
+		"name": "WRITE RB MANUAL INTENSITY ",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "write manual intensity",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '42',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '80',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "80"
 			},
 			{
-				key: 'mode',
-				label: 'mode',
-				type: 'text',
-				description: 'Description',
-				defaultValue: 'M',
+				"key": "mode",
+				"label": "mode",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "M"
 			},
 			{
-				key: 'value',
-				label: 'value',
-				type: 'text',
-				description: 'Description',
-				defaultValue: '10',
+				"key": "value",
+				"label": "value",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "10"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'WRITESBMANUALINTENSITY',
-		name: 'WRITE SB MANUAL INTENSITY ',
-		boardType: 'SB',
-		url: '/deviceControl',
-		description: 'write manual intensity',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITESBMANUALINTENSITY",
+		"name": "WRITE SB MANUAL INTENSITY ",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "write manual intensity",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '43',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '80',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "80"
 			},
 			{
-				key: 'mode',
-				label: 'mode',
-				type: 'text',
-				description: 'Description',
-				defaultValue: 'M',
+				"key": "mode",
+				"label": "mode",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "M"
 			},
 			{
-				key: 'value',
-				label: 'value',
-				type: 'text',
-				description: 'Description',
-				defaultValue: '30',
+				"key": "value",
+				"label": "value",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "30"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'WRITEIBMANUALINTENSITY',
-		name: 'WRITE IB MANUAL INTENSITY ',
-		boardType: 'IB',
-		url: '/deviceControl',
-		description: 'write manual intensity',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITEIBMANUALINTENSITY",
+		"name": "WRITE IB MANUAL INTENSITY ",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "write manual intensity",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '44',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '80',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "80"
 			},
 			{
-				key: 'mode',
-				label: 'mode',
-				type: 'text',
-				description: 'Description',
-				defaultValue: 'M',
+				"key": "mode",
+				"label": "mode",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "M"
 			},
 			{
-				key: 'value',
-				label: 'value',
-				type: 'text',
-				description: 'Description',
-				defaultValue: '80',
+				"key": "value",
+				"label": "value",
+				"type": "text",
+				"description": "Description",
+				"defaultValue": "80"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'READFBINTENSITY',
-		name: 'READ FB ADDRESS',
-		boardType: 'FB',
-		url: '/deviceControl',
-		description: 'read intensity',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "READFBINTENSITY",
+		"name": "READ FB ADDRESS",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "read intensity",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '41',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '81',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "81"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'READRBINTENSITY',
-		name: 'READ RB ADDRESS',
-		boardType: 'RB',
-		url: '/deviceControl',
-		description: 'read intensity',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "READRBINTENSITY",
+		"name": "READ RB ADDRESS",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "read intensity",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '42',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '81',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "81"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'READSBINTENSITY',
-		name: 'READ SB ADDRESS',
-		boardType: 'SB',
-		url: '/deviceControl',
-		description: 'read intensity',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "READSBINTENSITY",
+		"name": "READ SB ADDRESS",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "read intensity",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '43',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '81',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "81"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	{
-		id: 'READIBINTENSITY',
-		name: 'READ IB ADDRESS',
-		boardType: 'IB',
-		url: '/deviceControl',
-		description: 'read intensity',
-		parameters: [
+		"defaultPayload": {
+		}
+	}, {
+		"id": "READIBINTENSITY",
+		"name": "READ IB ADDRESS",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "read intensity",
+		"parameters": [
 			{
-				key: 'address',
-				label: 'Address of the Board',
-				type: 'text',
-				description: '',
-				defaultValue: '44',
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
 			},
 			{
-				key: 'command',
-				label: 'Command',
-				type: 'text',
-				description: '',
-				defaultValue: '81',
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "81"
 			},
 			{
-				key: 'serial_number',
-				label: 'Serial Number',
-				type: 'text',
-				description: 'serial number',
-				defaultValue: '12345',
-			},
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
 		],
-		defaultPayload: {},
-	},
-	// Add more test definitions here
+		"defaultPayload": {
+		}
+	}, {
+		"id": "FRONTBOARDLINKCHECK",
+		"name": "FRONT BOARD LINK CHECK",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "link check",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "70"
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "REARBOARDLINKCHECK",
+		"name": "REAR BOARD LINK CHECK",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "link check",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "70"
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "SIDEBOARDLINKCHECK",
+		"name": "SIDE BOARD LINK CHECK",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "link check",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "70"
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "INTERNALBOARDLINKCHECK",
+		"name": "INTERNAL BOARD LINK CHECK",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "link check",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "70"
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "FRONTBOARDRESET",
+		"name": "FRONT BOARD RESET",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "reset",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "30"
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "REARBOARDRESET",
+		"name": "REAR BOARD RESET",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "reset",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "30"
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "SIDEBOARDRESET",
+		"name": "SIDE BOARD RESET",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "reset",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "30"
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "INTERNALBOARDRESET",
+		"name": "INTERNAL BOARD RESET",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "reset",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "30"
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "FRONTBOARDDELETE",
+		"name": "FRONT BOARD DELETE",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "delete",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "90"
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "REARBOARDDELETE",
+		"name": "REAR BOARD DELETE",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "delete",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "90"
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "SIDEBOARDDELETE",
+		"name": "SIDE BOARD DELETE",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "delete",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "90"
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "INTERNALBOARDDELETE",
+		"name": "INTERNAL BOARD DELETE",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "delete",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "90"
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITEFRONTBOARDROUTEDATA",
+		"name": "WRITE FRONT BOARD ROUTE DATA ",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "route data",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "60 "
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITEREARBOARDROUTEDATA",
+		"name": "WRITE REAR BOARD ROUTE DATA ",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "route data",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "60 "
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITESIDEBOARDROUTEDATA",
+		"name": "WRITE SIDE BOARD ROUTE DATA ",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "route data",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "60 "
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "WRITEINTERNALBOARDROUTEDATA",
+		"name": "WRITE INTERNAL BOARD ROUTE DATA ",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "route data",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "60 "
+			},
+			{
+
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "FRONTBOARDCOLUMNTEST",
+		"name": " FRONT BOARD COLUMN TEST ",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "45"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "REARBOARDCOLUMNTEST",
+		"name": " REAR BOARD COLUMN TEST ",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "45"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "SIDEBOARDCOLUMNTEST",
+		"name": " SIDE BOARD COLUMN TEST ",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "45"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "INTERNALBOARDCOLUMNTEST",
+		"name": " INTERNAL BOARD COLUMN TEST ",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "45"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "FRONTBOARDROWWISETEST",
+		"name": " FRONT BOARD ROW WISE TEST ",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "46"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "REARBOARDROWWISETEST",
+		"name": " REAR BOARD ROW WISE TEST ",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "46"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "SIDEBOARDROWWISETEST",
+		"name": " SIDE BOARD ROW WISE TEST ",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "46"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "INTERNALBOARDROWWISETEST",
+		"name": " INTERNAL BOARD ROW WISE TEST ",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "46"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "FRONTBOARDFLASHINGIC",
+		"name": " FRONT BOARD FLASHING IC ",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "47"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "REARBOARDFLASHINGIC",
+		"name": " REAR BOARD FLASHING IC ",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "47"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "SIDEBOARDFLASHINGIC",
+		"name": " SIDE BOARD FLASHING IC ",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "45"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "INTERNALBOARDFLASHINGIC",
+		"name": " INTERNAL BOARD FLASHING IC ",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "45"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "FRONTBOARDFLASHINGBOARD",
+		"name": " FRONT BOARD FLASHING BOARD ",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "48"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "REARBOARDFLASHINGBOARD",
+		"name": " REAR BOARD FLASHING BOARD ",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "48"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "SIDEBOARDFLASHINGBOARD",
+		"name": " SIDE BOARD FLASHING BOARD ",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "48"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "INTERNALBOARDFLASHINGBOARD",
+		"name": " INTERNAL BOARD FLASHING BOARD ",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "48"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "FRONTBOARDFLASHINGENTIREBOARD",
+		"name": " FRONT BOARD FLASHING ENTIRE BOARD ",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "49"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "REARBOARDFLASHINGENTIREBOARD",
+		"name": " REAR BOARD FLASHING ENTIRE BOARD ",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "49"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "SIDEBOARDFLASHINGENTIREBOARD",
+		"name": " SIDE BOARD FLASHING ENTIRE BOARD ",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "49"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "INTERNALBOARDFLASHINGENTIREBOARD",
+		"name": " INTERNAL BOARD FLASHING ENTIRE BOARD ",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "49"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "FRONTBOARDTESTALL",
+		"name": " FRONT BOARD TEST ALL ",
+		"boardType": "FB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "41"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "50"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "REARBOARDTESTALL",
+		"name": " REAR BOARD TEST ALL ",
+		"boardType": "RB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "42"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "50"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "SIDEBOARDTESTALL",
+		"name": " SIDE BOARD TEST ALL ",
+		"boardType": "SB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "43"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "50"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}, {
+		"id": "INTERNALBOARDTESTALL",
+		"name": " INTERNAL BOARD TEST ALL ",
+		"boardType": "IB",
+		"url": "/deviceControl",
+		"description": "test",
+		"parameters": [
+			{
+				"key": "address",
+				"label": "Address of the Board",
+				"type": "text",
+				"description": "",
+				"defaultValue": "44"
+			},
+			{
+				"key": "command",
+				"label": "Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "40"
+			},
+			{
+				"key": "test_command",
+				"label": "Test Command",
+				"type": "text",
+				"description": "",
+				"defaultValue": "50"
+			},
+			{
+				"key": "test_type",
+				"label": "Test Type",
+				"type": "text",
+				"description": "",
+				"defaultValue": "pcb"
+			},
+			{
+				"key": "serial_number",
+				"label": "Serial Number",
+				"type": "text",
+				"description": "serial number",
+				"defaultValue": "12345"
+			}
+		],
+		"defaultPayload": {
+		}
+	}
 ];
 
 export const runTest = async (test: Test): Promise<Test> => {
