@@ -10,6 +10,8 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useReadFBAddress, useWriteFBAddress } from '@/utils/portUtils';
+import ConnectionComponent from '@/components/ConnectionComponent';
+import ConnectionComponentCopy from '@/components/ConnectionComponent copy';
 
 const TabsPAge = () => {
 
@@ -58,6 +60,12 @@ const TabsPAge = () => {
                 </div>
             </header>
             <div className="container flex flex-col  max-w-6xl ">
+
+                   <div className="text-xs  py-4  uppercase tracking-wider text-muted-foreground font-medium">
+                    Ports
+                </div>
+
+                <ConnectionComponentCopy/>
 
                 <div className="text-xs  py-4  uppercase tracking-wider text-muted-foreground font-medium">
                     CHOOSE BOARD TYPE
