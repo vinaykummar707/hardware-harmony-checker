@@ -66,6 +66,7 @@ const Index = ({ selectedBoard }: IndexProps) => {
     setSerialNumber(defaultValues.serialNumber);
     if (isSuccess) {
       setAddress(readData.output);
+      setAddressRead(readData.output);
     }
   }, [selectedBoard, isSuccess]);
 
